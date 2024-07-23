@@ -1,5 +1,5 @@
 #import packet
-from fastapi import FastAPI, Request, header, HTTPException
+from fastapi import FastAPI, Request, Header, HTTPException
 import pandas as pd
 
 #buat dataframe baru
@@ -31,7 +31,7 @@ def handlerdata(request: Request):
 
 # endpoint secret
 @app.get("/secret")
-def handerSecret(api_key: str = header(None)):
+def handerSecret(api_key: str = Header(None)):
     #cek api_key
     if api_key != API_KEY:
         return {
